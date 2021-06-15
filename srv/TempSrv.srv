@@ -1,0 +1,5 @@
+string ip
+int32 port
+---
+float32 result_AFE
+float32 result_Laser
