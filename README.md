@@ -13,6 +13,12 @@ This package works with the Terabee 3DcamVGA depth camera device.
 
 The 3DcamVGA software (contains a client API) must be installed in your system. This software is delivered with the 3DcamVGA device.
 
+Compatibility matrix:
+
+| ROS package | 3DcamVGA client API |
+|-------------|---------------------|
+| 1.1.1       | 1.1.x               |
+
 
 ## Build
 
