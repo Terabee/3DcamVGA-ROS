@@ -4,7 +4,7 @@
   <version>1.0.0</version>
   <description>This package provides ros node for Terabee VGA 3D Camera</description>
 
-  <maintainer email="jorge.camarero@terabee.com">Jorge Camarero Vera</maintainer>
+  <maintainer email="nicolas.vergnes@terabee.com">Nicolas Vergnes</maintainer>
 
   <license>MIT</license>
 
