@@ -16,15 +16,13 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
-
 generate_dynamic_reconfigure_options(
   cfg/Vga3DCamera.cfg
 )
 
 add_service_files(FILES
-    TempSrv.srv
-    )
-
+  TempSrv.srv
+)
 
 generate_messages(
   DEPENDENCIES
@@ -33,11 +31,9 @@ generate_messages(
 
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES ${PROJECT_NAME}
   CATKIN_DEPENDS roscpp dynamic_reconfigure sensor_msgs dynamic_reconfigure image_transport cv_bridge message_runtime
   std_msgs
 )
-
 
 include_directories(
   include
@@ -56,10 +52,16 @@ add_executable(temperature_service src/TemperatureService.cpp src/Vga3DCamera.cp
 target_link_libraries(temperature_service ${catkin_LIBRARIES})
 target_link_libraries(temperature_service ${CROZICAM_CLIENT_LIBRARIES})
 target_include_directories(temperature_service PRIVATE ${catkin_INCLUDE_DIRS})
+add_dependencies(temperature_service ${${PROJECT_NAME}_EXPORTED_TARGETS})
+add_dependencies(temperature_service ${catkin_EXPORTED_TARGETS})
+add_dependencies(temperature_service ${PROJECT_NAME}_gencfg)
 
 install( TARGETS
   camera_node
+  temperature_service
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  PUBLIC_HEADER DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
 
 # add_subdirectory(tests)
